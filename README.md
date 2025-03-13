@@ -22,7 +22,7 @@ This project is an NPX script designed to scaffold a basic Node.js RESTful API u
 You can run the script directly using NPX without installing globally:
 
 ```bash
-npx create-api <project-name>
+npx express-create <project-name>
 ```
 ### 2. Local Setup (For Development)
 
@@ -45,7 +45,7 @@ npm link
 ```
 4. Run the script locally
 ```bash
-create-api <project-name>
+express-create <project-name>
 ```
 ## Generated Project Structure
 When you run the script, it will generate the following structure in your project folder:
