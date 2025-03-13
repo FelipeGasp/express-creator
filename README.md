@@ -12,7 +12,7 @@ This project is an NPX script designed to scaffold a basic Node.js RESTful API u
 ## Requirements
 
 - Node.js (v14.x or later)
-- NPM or Yarn
+- NPM
 - MySQL database (local or remote)
 
 ## Installation & Usage
@@ -31,7 +31,7 @@ If you want to clone this repository and work on the project locally:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/npx-create-api.git
+git clone https://github.com/FelipeGasp/express-creator.git
 cd npx-create-api
 ```
 2. Install dependencies:
