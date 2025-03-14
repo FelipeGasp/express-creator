@@ -1,7 +1,7 @@
 {
     "type": "module",
     "name": "ep-creator-tool",
-    "version": "1.0.7A",
+    "version": "1.0.7",
     "bin": {
         "express-create": "./bin/cli.js"
     },

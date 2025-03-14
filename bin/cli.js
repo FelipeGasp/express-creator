@@ -62,6 +62,7 @@ console.log("Installing npm modules...")
 // Try to install node_modules 
 try{
     var bar2 = new cliProgress.SingleBar({},cliProgress.Presets.shades_grey)
+    console.log("Installing node modules here:", projectPath)
     bar2.start(100, 0)
     await execPromise('npm init -y', {cwd:projectPath}); //initalizing npm
     let node_modulesInstall = await execPromise('npm install express prisma', {cwd:projectPath})
@@ -81,9 +82,10 @@ try{
     console.log(`stdout: ${stdout}`);
     // console.error(`stderr: ${stderr}`);
     process.exit(0)
-}catch{
+}catch(error){
     bar2.stop()
     console.error('node_modules installed failed')
+    console.error(error.message)
     process.exit(1)
 }
 
