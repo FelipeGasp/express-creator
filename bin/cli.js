@@ -64,7 +64,7 @@ try{
     var bar2 = new cliProgress.SingleBar({},cliProgress.Presets.shades_grey)
     bar2.start(100, 0)
     await execPromise('npm init -y', {cwd:projectPath}); //initalizing npm
-    let node_modulesInstall = await execPromise('npm install', {cwd:projectPath})
+    let node_modulesInstall = await execPromise('npm install express prisma', {cwd:projectPath})
 
     const progressInterval = setInterval(()=>{
         const progress = bar2.value + 20
