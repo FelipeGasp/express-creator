@@ -22,7 +22,7 @@ This project is an NPX script designed to scaffold a basic Node.js RESTful API u
 You can run the script directly using NPX without installing globally:
 
 ```bash
-npx express-create <project-name>
+npx ep-creator-tool <project-name>
 ```
 ### 2. Local Setup (For Development)
 
@@ -32,7 +32,7 @@ If you want to clone this repository and work on the project locally:
 
 ```bash
 git clone https://github.com/FelipeGasp/express-creator.git
-cd npx ep-creator-tool <project_name>
+cd /express-creator
 ```
 2. Install dependencies:
 
