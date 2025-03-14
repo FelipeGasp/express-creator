@@ -1,4 +1,4 @@
-# Express-Creator
+# Express-Creator-Tool
 
 This project is an NPX script designed to scaffold a basic Node.js RESTful API using **Express** and **Prisma** with **MySQL**. The generated API includes a basic structure with routes for handling items from a MySQL database.
 
@@ -32,7 +32,7 @@ If you want to clone this repository and work on the project locally:
 
 ```bash
 git clone https://github.com/FelipeGasp/express-creator.git
-cd npx-create-api
+cd npx ep-creator-tool <project_name>
 ```
 2. Install dependencies:
 

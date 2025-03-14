@@ -1,1 +1,14 @@
-{"type":"module","name":"ep-creator-tool","version":"1.0.3","bin":{"express-create":"./bin/cli.js"},"dependencies":{"express":"^4.18.1","prisma":"^4.0.0","@prisma/client":"^4.0.0","cli-progress":"^3.12.0"}}
+{
+    "type": "module",
+    "name": "ep-creator-tool",
+    "version": "1.0.5A",
+    "bin": {
+        "express-create": "./bin/cli.js"
+    },
+    "dependencies": {
+        "express": "^4.18.1",
+        "prisma": "^4.0.0",
+        "@prisma/client": "^4.0.0",
+        "cli-progress": "^3.12.0"
+    }
+}
