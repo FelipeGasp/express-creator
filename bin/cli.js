@@ -1,12 +1,16 @@
 #!/usr/bin/env node
 //SHEBANG
 import fs from 'fs';
+import { promisify } from 'util';
 import path from 'path';
 import cliProgress from 'cli-progress';
 import { fileURLToPath } from 'url';
+import { exec } from 'child_process'
+import { ChildProcess } from 'child_process';
 
 
-var bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_grey);
+var execPromise = promisify(exec)
+var bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.legacy);
 bar1.start(100,0)
 var projectName = process.argv[2] || 'express-api'
 var projectPath = path.join(process.cwd(), projectName)
@@ -14,6 +18,14 @@ bar1.update(10)
 if(!fs.existsSync(projectPath)){
     fs.mkdirSync(projectPath)
 }
+const progressInterval = setInterval(()=>{
+    const progress = bar1.value + 20
+    if(progress <=80){
+        bar1.update(progress)
+    }
+},3000)
+
+
 //converting metaurl to systempath
 var __filename = fileURLToPath(import.meta.url) 
 var __dirname = path.dirname(__filename)
@@ -45,6 +57,36 @@ bar1.update(100)
 bar1.stop()
 console.log("")
 console.log("Project created in "+projectPath)
+console.log("Installing npm modules...")
+
+// Try to install node_modules 
+try{
+    var bar2 = new cliProgress.SingleBar({},cliProgress.Presets.shades_grey)
+    bar2.start(100, 0)
+    await execPromise('npm init -y', {cwd:projectPath}); //initalizing npm
+    let node_modulesInstall = await execPromise('npm install', {cwd:projectPath})
+
+    const progressInterval = setInterval(()=>{
+        const progress = bar2.value + 20
+        if(progress <=80){
+            bar2.update(progress)
+        }
+    },1000)
+
+    const {stdout, stderr} = await node_modulesInstall;
+    clearInterval(progressInterval)
+    bar2.update(100)
+    bar2.stop  
+    
+    console.log(`stdout: ${stdout}`);
+    // console.error(`stderr: ${stderr}`);
+    process.exit(0)
+}catch{
+    bar2.stop()
+    console.error('node_modules installed failed')
+    process.exit(1)
+}
+
 
 async function copyDirectory(src, dest) {
     await fs.promises.mkdir(dest, { recursive: true });
